@@ -585,7 +585,7 @@ button{
     margin-bottom: .75rem;
     margin-left: 36%;
     padding-top: 3%;
-    color: #fff;
+    color: var(--title-color);
 }
 
 

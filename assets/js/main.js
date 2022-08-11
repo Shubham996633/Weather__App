@@ -1,4 +1,3 @@
-// 1570cc31ded27da43ccc8a712c92f0cc   Api Key
 
 // api.openweathermap.org/data/2.5/weather?q={city name}&apiid={your api key}
 
@@ -914,3 +913,20 @@ function happy(){
         
       })
 }
+
+const sr = ScrollReveal({
+    origin:'top',
+    distance:'48px',
+    duration:2500,
+    delay:400,
+    
+  
+  })
+  
+  sr.reveal(`.home__title,.home__data,.subscribe__container`, {delay:300})
+  sr.reveal(`.home__description, .footer__info`, {delay:300})
+  sr.reveal(`.home__search`, {delay:400})
+  sr.reveal(`.home__value, .subscribe,.home__value-number,`, {delay:300})
+  sr.reveal(`.home__images,.value__container,.popular__container`, {delay:100})
+ 
+ 
