@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Weather App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/x-icon">
+
+                                 <!-- Remixcons -->
+
+       <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+                                <!-- Swipper CSS -->
+
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+
+                                 <!-- BOXICONS -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+                            <!-- Main CSS -->
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+    </head>
+
+    <body class>
+        
+
+    <header class="header" id ="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+               Weather Forcast <i class='bx bxl-google-cloud'></i>
+            </a>
+
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    
+                    <li class="nav__item">
+                        <a href="#current" class="nav__link active-link">
+                            <i class='bx bx-home-alt-2' ></i>
+                            <span>Current Weather</span>
+                            </a>
+
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#further" class="nav__link">
+                            <i class='bx bx-search-alt'></i>
+                            <span>Search Manually</span>
+                         </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#details" class="nav__link">
+                            <i class="ri-indent-decrease"></i>
+                            <span>7 Days Forecast</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#value" class="nav__link">
+                            <i class="ri-cloud-fill"></i>
+
+                            <span>Day Details</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+                <!-- Theme change button -->
+
+            <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+        </nav>
+                    
+                        
+
+    </header>
+
+        <main class="main">
+
+                <section class="home section" id ="current">
+                    <div class="home__container container grid">
+                        <div class="home__data">
+
+                            <h1 class="home__title">Current Weather in <span class="weather__city">------,------</span></h1>
+                          
+                          
+                            <span class="weather__update__icon" ><img src="http://openweathermap.org/img/wn//04d@4x.png" class='current__weather'></span>
+                          
+                             <span class="weather__temp home__value-number">--- </span><span class="degree">°C</span>
+                             <p class="home__description weather__type">---</p>
+                             <div class="home__value container grid">
+                                <div>
+                                    <h1 class="home__value-feels home__value-number">
+                                    Feels : <span class="value-feels">--- </span> °C
+                                    </h1>
+                                </div>
+
+                                <div>
+                                    <h1 class="home__value-wind home__value-number">
+                                        Wind Speed : <span class="value-wind">--- </span> Km/h
+                                    </h1>
+                                </div>
+
+                                <div>
+                                    <h1 class="home__value-visibilty home__value-number">
+                                     Visibilty : <span class="value-visibilty">--- </span> Km
+                                    </h1>
+                                </div>
+
+                                <div>
+                                    <h1 class="home__value-barometer home__value-number" >
+                                     Pressure : <span class="value-barometer">--- </span> mb
+                                    </h1>
+                                </div>
+
+                                <div>
+                                    <h1 class="home__value-Humidity  home__value-number">
+                                     Humidity : <span class="value-Humidity">--- </span> %
+                                    </h1>
+                                </div>
+
+                                <div>
+                                    <h1 class="home__value-dew  home__value-number" >
+                                     Dew Point : <span class="value-dew">--- </span> °C
+                                    </h1>
+                                </div>
+
+
+                               
+                                
+                                <div id="further">
+                                    <h1 class="home__value  search" >
+                                        <i class='bx bx-file-find search' ></i> Explore Weather Conditions of the Location You Want
+                                    </h1>
+                                </div>
+                                
+                                <div class="home__search" >
+                                    <i class='bx bx-map' ></i>
+                                    <input type="search" placeholder="Search by Location ..." class="home__search-input" id="home__search-input">
+                                    <button class="button" id ="weather__button" onclick="getWeatherReport(searchInputbox.value)">Search</button>
+                                </div>
+
+                               
+
+                             </div>
+                        </div>
+                    </div>
+                   
+ 
+
+
+            </section>
+
+
+            <section class="forcast popular section " id = "details" >
+                <div class="container">
+                    <span class="section__subtitle">All Data Are Real Time</span>
+                    <h2 class="section__title">
+                        7 Day's Forecast
+
+                    </h2>
+                    
+
+                    <div class="popular__container swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            
+                            <article class="popular__card swiper-slide" id="current-temp">
+                                
+                               
+                                <div class="popular__data">
+                                    <h2 class="popular__price">
+                                   
+                                        
+                                        <span class="temp">Day - ---&#176; C</span>
+                                        <span class="temp night">Night - ---&#176; C</span>
+                                    
+                                    </h2>
+                                    <h3 class="popular__title">------</h3>
+                                    <p class="popular__description">
+                                        
+                                    </p>
+                                    
+
+                                </div>
+                            </article>
+                        
+
+                       
+                            <article class="popular__card swiper-slide" id="weather-forecast1">
+                                
+                                <div class="popular__data">
+                                    <h2 class="popular__price">
+                                   
+                                        <span class="temp">Day - ---&#176; C</span>
+                                        <span class="temp">Night - ---&#176; C</span>
+                                    
+                                    </h2>
+                                    <h3 class="popular__title">------</h3>
+                                    <p class="popular__description">
+                                        
+                                    </p>
+                                    
+
+                                </div>
+                            </article>
+                        
+
+                       
+                            <article class="popular__card swiper-slide" id="weather-forecast2">
+                                
+                                <div class="popular__data">
+                            <h2 class="popular__price">  
+                                        <span class="temp">Day - ---&#176; C</span>
+                                        <span class="temp">Night - ---&#176; C</span>
+
+                                    
+                            </h2>
+                                    <h3 class="popular__title">-------</h3>
+                                    <p class="popular__description">
+                                        
+                                    </p>
+                                    
+
+                                </div>
+                            </article>
+                       
+
+                     
+                            <article class="popular__card swiper-slide" id="weather-forecast3">
+                               
+                                <div class="popular__data">
+                                <h2 class="popular__price">
+                                        <span class="temp">Day - ---&#176; C</span>
+                                        <span class="temp">Night - ---&#176; C</span>
+
+                                </h2>
+                                    <h3 class="popular__title">------</h3>
+                                    <p class="popular__description">
+                                        
+                                    </p>
+                                    
+
+                                </div>
+                            </article>
+                            
+
+                            <article class="popular__card swiper-slide" id="weather-forecast4">
+                              
+                                <div class="popular__data">
+                                <h2 class="popular__price">
+                                        <span class="temp">Day - ---&#176; C</span>
+                                        <span class="temp">Night - ---&#176; C</span>
+
+                                   
+                                </h2>
+                                    <h3 class="popular__title">------</h3>
+                                    <p class="popular__description">
+                                        
+                                    </p>
+                                    
+
+                                </div>
+                            </article>
+                           
+
+                           
+                            <article class="popular__card swiper-slide" id="weather-forecast5">
+                               
+                                <div class="popular__data">
+                                <h2 class="popular__price">
+                                    
+                                        <span class="temp">Day - ---&#176; C</span>
+                                        <span class="temp">Night - ---&#176; C</span>
+
+                                  
+                                </h2>
+                                    <h3 class="popular__title">------</h3>
+                                    <p class="popular__description">
+                                        
+                                    </p>
+                                    
+
+                                </div>
+                            </article>
+                            
+
+                            
+                            <article class="popular__card swiper-slide" id="weather-forecast6">
+                                End
+                               
+                            </article>
+                          
+
+
+                            
+                            <article class="popular__card swiper-slide" id="weather-forecast7">
+                                End
+                               
+                            </article>
+                         
+
+
+                        </div>
+                     
+
+                    <div class="swiper-pagination"></div>
+
+
+                </div>
+            </section>
+
+
+
+            <section class="value section" id="value">
+
+                <div class="value__container container grid">
+                    
+                    <div class="value__content">
+                        <div class="value__data">
+                            <span class="section__subtitle">All Data Are Real Time</span>
+                            <h2 class="section__title">
+                                Details of Day<span>.</span>
+
+                            </h2>
+                            <p class="value__description">
+                                
+                            </p>
+                        </div>
+                        <div class="value__accordion">
+                            <div class="value__accordion-item">
+                                <header class="value__accordion-header">
+                                    <i class='ri-sun-fill value__accordion-icon'></i>
+                                    <h3 class="value-accordion-title">
+                                        Sunrise And Sunset Timing of Day
+                                        
+                                    </h3>
+                                    <div class="value__accordion-arrow">
+                                        <i class='bx bxs-down-arrow' ></i>
+                                    </div>
+                                </header>
+                                <div class="value__accordion-content">
+                                    <p class="value__accordion-description">
+                                        <div class="sunrise-sunset">
+                                            
+                                        <i class='bx bxs-sun' ></i> Sunrise : <span class="value-rise">--- </span> AM
+                                        <br>
+
+                                        <i class='bx bx-sun' ></i> Sunset : <span class="value-set">--- </span> PM
+                                        
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value__accordion">
+                            <div class="value__accordion-item">
+                                <header class="value__accordion-header">
+                                    <i class='ri-sun-line value__accordion-icon'></i>
+                                    <h3 class="value-accordion-title">
+                                        UV Index of Day
+
+                                    </h3>
+                                    <div class="value__accordion-arrow">
+                                        <i class='bx bxs-down-arrow'></i>
+                                    </div>
+                                </header>
+                                <div class="value__accordion-content">
+                                    <p class="value__accordion-description">
+                                        UV Index is showing Percentage in 
+                                        refrence of maximum UV Index of Today.
+                                        
+                                        <div id="graph">
+                                        <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-4 uv">
+                                                    <div class="round" data-value="0.80" data-size="200" data-thickness="6">
+                                                    <strong class="percentage"></strong>
+                                                    <span><i class="fa fa-html5" aria-hidden="true"></i> </span>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value__accordion">
+                            <div class="value__accordion-item">
+                                <header class="value__accordion-header">
+                                    <i class='ri-cloudy-fill value__accordion-icon'></i>
+                                    <h3 class="value-accordion-title">
+                                        Probability of Precipitation
+                                    </h3>
+                                    <div class="value__accordion-arrow">
+                                        <i class='bx bxs-down-arrow' ></i>
+                                    </div>
+                                </header>
+                                <div class="value__accordion-content">
+                                    <p class="value__accordion-description">
+                                        Providing the  Probability of Precipitation of
+                                        the Today.
+
+                                    <div id="graph">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-4 rain">
+                                                    <div class="round" data-value="0.74" data-size="200" data-thickness="6">
+                                                        <strong></strong>
+                                                        <span><i class="fa fa-css3" aria-hidden="true"></i></span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value__accordion">
+                            <div class="value__accordion-item">
+                                <header class="value__accordion-header">
+                                    <i class='ri-cloud-windy-line value__accordion-icon'></i>
+                                    <h3 class="value-accordion-title">
+                                        Humidity
+                                    </h3>
+                                    <div class="value__accordion-arrow">
+                                        <i class='bx bxs-down-arrow' ></i>
+                                    </div>
+                                </header>
+                                <div class="value__accordion-content">
+                                    <p class="value__accordion-description">
+                                        Providing the  Probability of Precipitation of
+                                        the Today.
+                                        <div id="graph">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-4 humid">
+                                                        <div class="round" data-value="0.65" data-size="200" data-thickness="6">
+                                                            <strong></strong>
+                                                            <span><i class="fa fa-jsfiddle" aria-hidden="true"></i></span>
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>           
+
+
+
+        <section class="subscribe section">
+            <div class="subscribe__container container">
+                <h1 class="subscribe__title">
+                    Have Enjoyed The Weather Forecast App
+                </h1>
+                <p class="subscribe__description">
+                    The App is in Beta State and 
+                    will be more user Freindly. Please 
+                    Click On 'Enjoyed' If you Had.
+                </p>
+                <button class="button subscribe__button" onclick="happy()">
+                    Enjoyed
+                </button>
+            </div>
+            
+        </section>
+
+
+
+        <footer class="footer section">
+           
+            <div class="footer__info container grid">
+                <span class="footer__copy">
+                    &#169; Shubham Maurya. All rigths reserved
+                </span>
+                
+            </div>
+
+        </footer>
+
+        </main>
+
+                     <!-- SCROLL REVEL -->
+
+          <script src="assets/js/scrollreveal.min.js"></script>
+
+          <a href="#" class="scrollup" id="scroll-up">
+              <i class='bx bx-chevrons-up' ></i>
+          </a>
+
+
+                    <!-- Progress Circle -->.
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.0/circle-progress.min.js'></script>
+
+       
+
+                    <!-- Sweet Alert -->
+
+        <script src="assets/js/sweetalert2.all.min.js"></script>
+
+
+                    <!-- Moment -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+                    <!-- Swipper JS -->
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+                    <!-- Initialize Swiper -->
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+    </script>
+
+
+                    <!-- MAIN JS -->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
