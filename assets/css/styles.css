@@ -952,7 +952,7 @@ body.dark-theme{
 }
 
 .swiper-pagination-bullet{
-    background-color: var(--first-color);
+    background-color: var(--title-color);
 }
 
 /* BreakPoints */
