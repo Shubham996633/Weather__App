@@ -132,7 +132,10 @@ button{
 .grid{
     display: grid;
 }
-
+article{
+    border: 1px solid var(--first-color-light);
+    
+}
 .section{
     padding: 4.5rem 0 2rem;
 }
@@ -178,7 +181,11 @@ button{
     color: var(--first-color);
 
 }
-
+.value__accordion-item
+    {
+        border: 1px solid var(--first-color-light);
+       
+    }
 
 @media screen and (max-width:1023px){
     .nav__menu{
@@ -745,7 +752,7 @@ button{
 
 .value__accordion-item{
     background-color: var(--body-color);
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--first-color-light);
     border-radius: .5rem;
     padding: 1rem .75rem;
 
