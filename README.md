@@ -9,7 +9,7 @@
  
  <ul>
  <li>For Desktop User Has To <em>Allow there location</em> for on load fetch of weather.</li>
- <li>For Desktop User Has To<em> Put <i>On</i> there location</em> for on load fetch of weather.</li>
+ <li>For Small Devices User Has To<em> Put <i>On</i> there location</em> for on load fetch of weather.</li>
  </ul>
  
  <h3>Enjoy The Weather App</h3>
