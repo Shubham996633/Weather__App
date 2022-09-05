@@ -431,45 +431,70 @@ function showWeatherReport(weather){
 
     console.log(weather)
     if(weather.cod==404){
-        Swal.fire({
-            title: '<strong>Location Not Found</strong>',
-            icon: 'warning',
-            html:
-              'Please Check The Location Name ',
-            showCloseButton: true,
-            showCancelButton: true,
-            focusConfirm: false,
-            
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
           })
+          
+          Toast.fire({
+            icon: 'error',
+            title: '<b>Weather Data fail to update by API .<i> Please try Correct Name</i></b>'
+          })
+    }else{
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: '<b>Weather Data has been updated by API .<i> Now, Please scroll up</i></b>'
+          })
+
+   
+    
+    
+        const weather__icon = document.querySelector('.weather__update__icon');
+        weather__icon.innerHTML=`
+        <img src="http://openweathermap.org/img/wn//${weather.weather[0].icon}@4x.png" alt="weather icon" class="w-icon current__weather_size">`
+
+
+        const Weatherlatitude = weather.coord.lat;
+        
+        const Weatherlongitude = weather.coord.lon;
+
+        
+
+        let weatherCity=document.querySelector('.weather__city');
+
+        weatherCity.innerHTML=`${weather.name}, ${weather.sys.country}`;
+
+
+        
+
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Weatherlatitude}&lon=${Weatherlongitude}&appid=${weatherApi.key}`)
+            .then(currentsecond =>{
+                return currentsecond.json();
+
+
+            }).then(WeatherDatasecond);
+
     }
-    
-    
-    const weather__icon = document.querySelector('.weather__update__icon');
-    weather__icon.innerHTML=`
-    <img src="http://openweathermap.org/img/wn//${weather.weather[0].icon}@4x.png" alt="weather icon" class="w-icon current__weather_size">`
-
-
-    const Weatherlatitude = weather.coord.lat;
-    
-    const Weatherlongitude = weather.coord.lon;
-
-    
-
-    let weatherCity=document.querySelector('.weather__city');
-
-    weatherCity.innerHTML=`${weather.name}, ${weather.sys.country}`;
-
-
-    
-
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Weatherlatitude}&lon=${Weatherlongitude}&appid=${weatherApi.key}`)
-        .then(currentsecond =>{
-            return currentsecond.json();
-
-
-        }).then(WeatherDatasecond);
-
-
 
 }
 
