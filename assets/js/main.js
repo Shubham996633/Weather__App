@@ -445,7 +445,7 @@ function showWeatherReport(weather){
           
           Toast.fire({
             icon: 'error',
-            title: '<b>Weather Data fail to update by API .<i> Please try Correct Name</i></b>'
+            title: '<b>Weather Data fail to update by API . <i> Please try Correct Name</i></b>'
           })
     }else{
 
@@ -463,8 +463,9 @@ function showWeatherReport(weather){
           
           Toast.fire({
             icon: 'success',
-            title: '<b>Weather Data has been updated by API .<i> Now, Please scroll up</i></b>'
+            title: '<b><i>Weather Data has been updated by API .</i></b>'
           })
+          window.scrollTo(0, 0);
 
    
     
