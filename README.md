@@ -4,7 +4,7 @@
  
  ![image](https://user-images.githubusercontent.com/65014926/184064837-495ef1cd-5f65-4ca9-b7ec-1c46184c6454.png)
  
- 
+
  
 ## To Visit Click Here: <a href ="https://shubham996633.github.io/Weather__App/">Weather__App</a>
  
@@ -21,7 +21,8 @@
          
 
       
-   
+#### There is Version 2.0 of Weather App which is build using React JS and Tailwind CSS to visit Click Here <a href = "#">Weather App </a> .
+
 
  ## Note
  
