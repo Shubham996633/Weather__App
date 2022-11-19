@@ -21,7 +21,7 @@
          
 
       
-### There is Version 2.0 of Weather App which is build using React JS and Tailwind CSS to visit Click Here <a href = "#">Weather App </a> .
+### There is Version 2.0 of Weather App which is build using React JS and Tailwind CSS to visit Click Here <a href = "https://joweather.netlify.app/">Weather App </a> .
 
 
  ## Note
